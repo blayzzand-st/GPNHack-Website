@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GPNHack-Website/static/css/main.88b72b36.css",
+    "main.js": "/GPNHack-Website/static/js/main.6c96a89d.js",
+    "index.html": "/GPNHack-Website/index.html",
+    "main.88b72b36.css.map": "/GPNHack-Website/static/css/main.88b72b36.css.map",
+    "main.6c96a89d.js.map": "/GPNHack-Website/static/js/main.6c96a89d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88b72b36.css",
+    "static/js/main.6c96a89d.js"
+  ]
+}
