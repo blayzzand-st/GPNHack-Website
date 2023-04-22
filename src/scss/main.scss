@@ -1,0 +1,610 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* VARIABLES */
+$fs-small: 14px;
+$fs-medium: 16px;
+$fs-large: 18px;
+$fs-XL: 24px;
+$fs-XXL: 32px;
+$fc-dark: #002033;
+$fc-light: rgba(0, 32, 51, 0.6);
+$fc-button: rgba(0, 57, 92, 0.8);
+$fw-regular: 400;
+$fw-bold: 700;
+$ff: "Segoe UI", sans-serif;
+
+$padding: 32px;
+$border-radius: 8px;
+$bg-color: #ECF1F4;
+$bg-color-success: #24C38E;
+$bg-color-progress: rgba(0, 32, 51, 0.08);
+$bg-btn-color: rgba(0, 66, 105, 0.07);
+$border-color: rgba(0, 65, 102, 0.2);
+$color-alt: #0078D2;
+$card-color-dark: rgba(0, 32, 51, 0.05);
+$card-shadow: 0px 2px 2px rgba(0, 32, 51, 0.02), 0px 2px 8px rgba(0, 32, 51, 0.16);
+$choice-group-color: rgba(0, 66, 105, 0.28);
+
+/* GENERAL STYLES*/
+body {
+  font-size: $fs-medium;
+  font-family: $ff;
+  line-height: 150%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  border-bottom: 1px solid $border-color;
+  z-index: 1;
+
+  p {
+    color: $fc-dark;
+    font-weight: $fw-regular;
+    display: flex;
+    align-items: center;
+    padding: 22px 12px 18px 12px;
+  }
+
+  .title {
+    color: $fc-dark;
+    font-weight: $fw-bold;
+    font-size: $fs-large;
+    padding: 18px 24px;
+  }
+
+  .part_1 {
+    padding-right: 4px;
+  }
+
+  .part_2 {
+    padding-left: 0;
+  }
+
+  .unselected {
+    color: $fc-light;
+    padding-left: 20px;
+  }
+
+  .line {
+    width: 108px;
+    height: 2px;
+    background-color: $color-alt;
+    position: absolute;
+    bottom: 0;
+    left: 251px;
+  }
+
+  #theme {
+    position: absolute;
+    right: 239px;
+  }
+
+  #help {
+    position: absolute;
+    right: 280px;
+  }
+
+  #ring {
+    position: absolute;
+    right: 322px;
+  }
+}
+
+/* CLASSES */
+.user {
+  display: flex;
+  flex-flow: row;
+  position: absolute;
+  right: 0;
+
+  img {
+    border-radius: 50%;
+    margin: 14px 0;
+  }
+
+  p {
+    height: 16px;
+    padding: 0;
+    margin: 22px 40px 22px 12px;
+  }
+}
+
+.main {
+  background-color: $bg-color;
+  padding: 0 50px 96px 50px;
+}
+
+.card {
+  width: 464px;
+  height: 260px;
+  margin: 24px 0;
+  padding: $padding;
+  position: relative;
+  background-color: white;
+  border-radius: $border-radius;
+  color: $fc-dark;
+  box-shadow: $card-shadow;
+}
+
+.themeTitle {
+  font-size: $fs-XL;
+  font-weight: $fw-regular;
+  padding-top: 48px;
+}
+
+.cardTitle {
+  font-size: $fs-XL;
+  font-weight: $fw-regular;
+}
+
+.button {
+  font-size: $fs-small;
+  line-height: 40px;
+  bottom: $padding;
+  background-color: $color-alt;
+  color: white;
+  padding: 0 20px;
+  gap: 14px;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.recommendedTheme {
+  .card {
+    width: 1440px;
+    height: 248px;
+  }
+
+  .cardTitle {
+    font-size: $fs-XXL;
+    line-height: 150%;
+    position: absolute;
+    left: 366px;
+    top: 32px;
+  }
+
+  .description {
+    position: absolute;
+    left: 366px;
+    bottom: 107px;
+  }
+
+  .tags {
+    position: absolute;
+    top: 80px;
+    left: 366px;
+  }
+
+  .button {
+    position: absolute;
+    left: 366px;
+    width: 171px;
+    height: 40px;
+  }
+
+  .tasks {
+    width: 49px;
+    height: 36px;
+    position: absolute;
+    top: 100px;
+    left: 158px;
+    font-size: $fs-XL;
+    text-align: center;
+  }
+
+  .separator {
+    display: inline-block;
+  }
+
+  .tasks-text {
+    width: 53px;
+    height: 21px;
+    position: absolute;
+    top: 134px;
+    left: 156px;
+    font-size: $fs-small;
+    text-align: center;
+    color: $fc-light;
+  }
+
+  .progress-bar {
+    position: absolute;
+    left: 106px;
+    top: 49px;
+    width: 154px;
+    height: 154px;
+    border-radius: 50%;
+    border: 16px solid $bg-color-progress;
+  }
+
+  .progress-bar-after {
+    position: absolute;
+    left: 106px;
+    top: 49px;
+    width: 154px;
+    height: 154px;
+    border-radius: 50%;
+    border: 16px solid $bg-color-success;
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 35%, 50% 50%);
+  }
+
+  .btn-show-more {
+    width: 140px;
+    height: 32px;
+    margin: 0 625px;
+  }
+
+  .line {
+    width: 636px;
+    height: 0;
+    border: 1px solid $border-color;
+  }
+
+  .line-1 {
+    width: 606px;
+    position: absolute;
+    top: 445px;
+  }
+
+  .line-2 {
+    width: 656px;
+    position: absolute;
+    top: 445px;
+    right: 45px;
+  }
+}
+
+.mainTheme {
+  width: 1440px;
+  height: 384px;
+  background-color: $card-color-dark;
+  padding: $padding;
+  margin-top: 40px;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  .mainThemeWrap {
+    display: flex;
+    flex-flow: row;
+  }
+
+  .themeTitle {
+    padding: 0;
+  }
+
+  .card {
+    margin: 24px 0 0;
+  }
+
+  .hide-passed {
+    width: 164px;
+    height: 32px;
+    margin-left: 32px;
+  }
+
+  .forward {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    margin-left: 8px;
+  }
+
+  .back {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin-left: 833px;
+    border-radius: 50%;
+  }
+
+  .card-welcome {
+    position: relative;
+
+    .button {
+      width: 178px;
+      height: 40px;
+      background-color: white;
+      color: $color-alt;
+      border: 1px solid $color-alt;
+      gap: 14px;
+      padding-left: 32px;
+      font-size: $fs-medium;
+      justify-content: right;
+    }
+
+    .tasks {
+      display: none;
+    }
+
+    .tasks-text {
+      display: none;
+    }
+
+    .done {
+      width: 24px;
+      height: 24px;
+      background-color: $bg-color-success;
+      border-radius: 50%;
+      position: absolute;
+      bottom: $padding;
+      right: $padding;
+      display: grid;
+      place-items: center;
+    }
+
+    #again-icon {
+      position: absolute;
+      bottom: 47px;
+      left: 49px;
+    }
+  }
+
+  .card-start-working {
+    padding: 0 24px;
+
+    .button {
+      margin-right: 107px;
+    }
+
+    .tasks {
+      margin-right: 6px;
+    }
+
+    .tasks-text {
+      margin-right: 10px;
+      color: $fc-light;
+      font-size: $fs-small;
+    }
+
+    .progress-bar {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: $padding;
+      border-radius: 50%;
+      border: 2px solid $bg-color-progress;
+    }
+
+    .progress-bar-after {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: $padding;
+      border-radius: 50%;
+      border: 2px solid $bg-color-success;
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 35%, 50% 50%);
+    }
+  }
+
+  .card-bottom-wrapper {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-top: 38px;
+  }
+
+  .card-introduction {
+
+    .button {
+      margin-right: 231px;
+    }
+
+    .separator {
+      display: none;
+    }
+
+    .tasks {
+      margin-right: 8px;
+    }
+
+    .tasks-text {
+      color: $fc-light;
+      font-size: $fs-small;
+    }
+  }
+}
+
+.mainCardsDisplay {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.otherTheme {
+
+  .themeTitle {
+    padding-bottom: 1rem;
+  }
+
+  .choice-group {
+    width: 627px;
+    height: 2.5rem;
+    margin-bottom: 24px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    border: 1px solid $choice-group-color;
+    border-radius: 4px;
+  }
+
+  .choice-item {
+    display: grid;
+    place-items: center;
+  }
+
+  .divider {
+    width: 1px;
+    height: 26px;
+    background-color: $choice-group-color;
+  }
+
+  .card-bottom-wrapper {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-top: 38px;
+    justify-content: right;
+
+    .button {
+      margin-right: auto;
+    }
+
+    .tasks {
+      margin-right: 6px;
+    }
+
+    .tasks-text {
+      font-size: $fs-small;
+      color: $fc-light;
+    }
+  }
+
+  #all {
+    width: 65px;
+    height: 40px;
+    color: $fc-button;
+    background-color: $bg-btn-color;
+    border-radius: 4px;
+  }
+
+  #working-space {
+    width: 148px;
+    height: 40px;
+  }
+
+  #libraries {
+    width: 128px;
+    height: 40px;
+  }
+
+  #passed {
+    width: 126px;
+    height: 40px;
+  }
+
+  #not-passed {
+    width: 157px;
+    height: 40px;
+  }
+}
+
+.otherThemeDisplay {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  gap: 24px;
+
+  .card {
+    margin: 0;
+  }
+
+  #start-working {
+
+    .tasks-text {
+      margin-right: 7px;
+    }
+
+    .progress-bar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid $bg-color-progress;
+    }
+
+    .progress-bar-after {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: $padding;
+      border-radius: 50%;
+      border: 2px solid $bg-color-success;
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 35%, 50% 50%);
+    }
+  }
+
+  #start-working-2 {
+    .tasks-text {
+      margin-right: 7px;
+    }
+
+    .progress-bar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid $bg-color-progress;
+    }
+
+    .progress-bar-after {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: $padding;
+      border-radius: 50%;
+      border: 2px solid $bg-color-success;
+      clip-path: polygon(50% 0%, 100% 0%, 100% 65%, 50% 50%);
+    }
+  }
+
+  #working-with-libraries, #introduction {
+
+    .separator {
+      display: none;
+    }
+  }
+
+  #working-with-libraries-2, #introduction-2 {
+
+    .separator {
+      display: none;
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  margin-top: 8px;
+  margin-bottom: 11px;
+  font-size: $fs-small;
+  color: $fc-light;
+
+  .circle {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $fc-light;
+    margin: 0 8px;
+  }
+}
+
+.sub-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px 0 16px;
+  gap: 11px;
+  font-size: $fs-small;
+  border: none;
+  background-color: $bg-btn-color;
+  color: $fc-button;
+  border-radius: 4px;
+}
